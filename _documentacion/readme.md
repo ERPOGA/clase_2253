@@ -4,7 +4,7 @@ Autor: Clase 2253 <br>
 Fecha Inicio: 2023-06-21 <br>
 Fecha Fin: No tiene <br>
 Fecha Ultima Actualizacion: 2023-06-21<br>
-Mail de reclamo: <br>
+Mail de reclamo:soymail@mail.com <br>
 
 Descripcion: Es funcional el primer proyecto <br>
 
