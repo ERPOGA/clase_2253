@@ -33,6 +33,7 @@
 		<li><a href="mobile.html">Mobile</a></li>
 	</ul>	
 	<h1> titulo </h1>
+	<h2>Titulo 2 </h2>
 	<div class="fixed-action-btn toolbar direction-top active" style="transition: transform 0.2s cubic-bezier(0.55, 0.085, 0.68, 0.53) 0s, background-color 0s linear 0.2s; text-align: center; width: 100%; bottom: 0px; left: 0px; overflow: hidden; background-color: rgb(244, 67, 54);">
 		<a class="btn-floating btn-large red" style="transition: transform 0.2s ease 0s; overflow: visible;">
 			<i class="large material-icons">mode_edit</i>
