@@ -9,45 +9,76 @@
 
 	<!--Let browser know website is optimized for mobile-->
 	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+	<style>
+		body {
+			display: flex;
+			min-height: 100vh;
+			flex-direction: column;
+		}
+		main {
+			flex: 1 0 auto;
+		}
+		.icono_logo {
+			width: 50px;
+			margin-top: 5px;
+			margin-left: 45%;
+		}
+
+	</style>
+
 </head>
 
 <body>
 	<nav>
 		<div class="nav-wrapper  blue lighten-5">
-			<a href="#!" class="brand-logo center indigo-text text-darken-4">Logo</a>
-			<a href="#" data-target="mobile-demo" class="sidenav-trigger">
-				<i class="material-icons indigo-text text-darken-">menu</i>
+			<img src="web/img/perro.png" class="icono_logo">
+			<a href="#!" class="brand-logo indigo-text text-darken-4">
+				MiPanel
 			</a>
-			<ul class="right hide-on-med-and-down">
-				<li>
-
-
-				</li>
-			</ul>
 		</div>
 	</nav>
-	<ul class="sidenav" id="mobile-demo">
-		<li><a href="sass.html">Sass</a></li>
-		<li><a href="badges.html">Components</a></li>
-		<li><a href="collapsible.html">Javascript</a></li>
-		<li><a href="mobile.html">Mobile</a></li>
-	</ul>	
-	<h1> titulo </h1>
-	<h2>Titulo 2 </h2>
-	<div class="fixed-action-btn toolbar direction-top active" style="transition: transform 0.2s cubic-bezier(0.55, 0.085, 0.68, 0.53) 0s, background-color 0s linear 0.2s; text-align: center; width: 100%; bottom: 0px; left: 0px; overflow: hidden; background-color: rgb(244, 67, 54);">
-		<a class="btn-floating btn-large red" style="transition: transform 0.2s ease 0s; overflow: visible;">
-			<i class="large material-icons">mode_edit</i>
-			<div class="fab-backdrop" style="background-color: rgb(244, 67, 54); transform: scale(18.1); transition: transform 0.2s cubic-bezier(0.55, 0.055, 0.675, 0.19) 0s;"></div>
+	<div class="fixed-action-btn">
+		<a class="btn-floating btn-large blue">
+			<i class="large material-icons">dashboard</i>
 		</a>
 		<ul>
-			<li class="waves-effect waves-light"><a href="#!" style="opacity: 1;"><i class="material-icons">insert_chart</i></a></li>
-			<li class="waves-effect waves-light"><a href="#!" style="opacity: 1;"><i class="material-icons">format_quote</i></a></li>
-			<li class="waves-effect waves-light"><a href="#!" style="opacity: 1;"><i class="material-icons">publish</i></a></li>
-			<li class="waves-effect waves-light"><a href="#!" style="opacity: 1;"><i class="material-icons">attach_file</i></a></li>
+			<li>
+				<a href="sistema.php?r=lista_proveedores" class="btn-floating red">
+					<i class="material-icons">fitness_center</i>
+				</a>
+			</li>
+			<li>
+				<a href="sistema.php?r=lista_generos" class="btn-floating yellow darken-1">
+					<i class="material-icons">format_quote</i>
+				</a>
+			</li>
+			<li>
+				<a href="sistema.php?r=lista_directores" class="btn-floating green">
+					<i class="material-icons">person</i>
+				</a>
+			</li>
+			<li>
+				<a class="btn-floating blue">
+					<i class="material-icons">attach_file</i>
+				</a>
+			</li>
 		</ul>
 	</div>
+	<main>
+		<div class="container">
+			<?php include("router.php"); ?>
+		</div>
+	</main>
 
-	<h1>Hola Arranco el proyecto</h1>
+	<footer class="page-footer blue lighten-5">
+		<div class="footer-copyright">
+			<div class="container blue-text">
+				© 2014 Copyright Text
+				<a class="blue-text right" href="#!">More Links</a>
+			</div>
+		</div>
+	</footer>
 	<!--JavaScript at end of body for optimized loading-->
 	<script type="text/javascript" src="web/js/materialize.min.js"></script>
 	<script>
@@ -64,7 +95,7 @@
 
 			var elems = document.querySelectorAll('.fixed-action-btn');
 			var instances = M.FloatingActionButton.init(elems, {
-				toolbarEnabled: true
+				hoverEnabled: false
 			});
 
 		});
