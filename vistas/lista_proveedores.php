@@ -15,7 +15,7 @@
 	<thead>
 		<tr>
 			<th colspan="4">
-				<a class="btn blue lighten-2 right">
+				<a href="sistema.php?r=ingresar_proveedor" class="btn blue lighten-2 right">
 					<i class="material-icons">add</i> Nuevo
 				</a>
 			</th>

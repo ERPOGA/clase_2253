@@ -7,6 +7,10 @@
 
 			include("vistas/lista_proveedores.php");	
 
+		}elseif($formulario == "ingresar_proveedor"){
+
+			include("vistas/ingresar_proveedor.php");	
+
 		}elseif($formulario == "lista_generos"){
 
 			include("vistas/lista_generos.php");	
