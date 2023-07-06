@@ -11,6 +11,14 @@
 
 			include("vistas/ingresar_proveedor.php");	
 
+		}elseif($formulario == "borrar_proveedor"){
+
+			include("vistas/borrar_proveedor.php");	
+
+		}elseif($formulario == "editar_proveedor"){
+
+			include("vistas/editar_proveedor.php");	
+
 		}elseif($formulario == "lista_generos"){
 
 			include("vistas/lista_generos.php");	
