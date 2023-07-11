@@ -1,40 +1,43 @@
 <?php
 
+	//http://localhost/clase_2253/proyecto_git/sistema.php?r=borrar_proveedor&id=7
+
 	require_once("modelos/proveedores.php");
 
 	$mensaje = "";
 	$respuesta = "";
 	
-	$id = isset($_GET['id'])?$_GET['id']:"";
-
 	if(isset($_POST['id']) && $_POST['id'] > 0 && isset($_POST['boton']) && $_POST['boton'] == "borrar"){
 
-			$id = $_POST['id'];
-			$objProveedores = new proveedores();
-			$existe = $objProveedores->cargar($id);
-			if($existe){
+		$id = $_POST['id'];
+		$objProveedores = new proveedores();
+		$existe = $objProveedores->cargar($id);
+		if($existe){
 
-				$respuesta = $objProveedores->borrar();
+			$respuesta = $objProveedores->borrar();
 
-				if($respuesta){
+			if($respuesta){
 
-					$mensaje = "El registro se borro correctamete";
+				$mensaje = "El registro se borro correctamete";
 
-				}else{
-
-					$mensaje = "Error no se puedo borrar el registro";
-				
-				}	
 			}else{
-				// Entramos aca por que el registro no existe
-				$respuesta = false;
-				$mensaje = "No existe ese registro";
-				
-			}
 
+				$mensaje = "Error no se puedo borrar el registro";
+			
+			}	
+		}else{
+			// Entramos aca por que el registro no existe
+			$respuesta = false;
+			$mensaje = "No existe ese registro";
+			
+		}
 
+	}else{
+
+		$id = isset($_GET['id'])?$_GET['id']:"";
 
 	}
+
 	if(isset($_POST['boton']) && $_POST['boton'] == "cancelar"){
 		header("Location: sistema.php?r=lista_proveedores");
 	}

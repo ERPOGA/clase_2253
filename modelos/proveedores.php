@@ -10,6 +10,7 @@ class proveedores {
 	// Es la descrpcion del proveedor
 	public $descripcion;
 
+	protected $tabla = "proveedores";
 
 	public function constructor($arrayDatos = array()){
 	
@@ -121,7 +122,7 @@ class proveedores {
 		
 	}
 
-	public function listar(){
+	public function listar($filtro = array()){
 		/*
 			Este metodo se encarga de retornar una lista de registro de la base de datos
 		*/
@@ -135,7 +136,8 @@ class proveedores {
 
 		$sql = "SELECT * FROM proveedores
 					WHERE estado = '1'
-				ORDER BY nombre";
+				ORDER BY id
+					LIMIT ".$filtro['inicio'].", ".$filtro['cantidad']."";
 
 		$mysqlPrepare = $conexion->prepare($sql);
 		
@@ -170,6 +172,33 @@ class proveedores {
 
 		}
 		return $respuesta;
+
+	}
+
+
+	public function totalRegistros(){
+
+		$host = "localhost";
+		$puerto = "3306";
+		$usuario = "root";
+		$clave = "";
+		$db = "curso_2253";
+		$conexion = new PDO("mysql:host=".$host.":".$puerto.";dbname=".$db."",$usuario,$clave);
+		$conexion->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+
+		$sql = "SELECT count(*) as total FROM ".$this->tabla." WHERE estado = 1";
+
+		$mysqlPrepare = $conexion->prepare($sql);	
+		$mysqlPrepare->execute();	
+		$lista = $mysqlPrepare->fetchAll(PDO::FETCH_ASSOC);
+
+		if(isset($lista[0]['total'])){
+			$retorno = $lista[0]['total'];		
+		}else{
+			$retorno = 0;		
+		}
+
+		return $retorno;
 
 	}
 
