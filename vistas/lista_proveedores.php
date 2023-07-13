@@ -77,7 +77,7 @@
 
 		<tr>
 			<td><?=$proveedor['id']?></td>
-			<td class="truncate" style="max-width:200px"><?=$proveedor['nombre']?></td>
+			<td style="max-width:200px"><?=$proveedor['nombre']?></td>
 			<td ><?=$proveedor['descripcion']?></td>
 			<td>
 				<a href="sistema.php?r=editar_proveedor&id=<?=$proveedor['id']?>" class="btn btn-floating blue lighten-2">

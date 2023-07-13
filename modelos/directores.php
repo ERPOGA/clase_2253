@@ -2,34 +2,41 @@
 
 require_once("modelos/generico.php");
 
-class proveedores extends generico{
+class directores extends generico{
 
+	
 	// Es el nombre y tiene entre 3 y 100 caracteres alfanumerico
 	public $nombre;
-	// Es la descrpcion del proveedor
-	public $descripcion;
-
-	protected $tabla = "proveedores";
+	// Son los apellidos de los directores
+	public $apellido;
+	// Es la fecha de nacimiento del director y esta expresada YYYY-mm-dd
+	public $fechaNacimiento;
+	// El el pais donde nacio el director y esta expresado en CountryIso 2 digitos
+	public $pais;
 
 	public function constructor($arrayDatos = array()){
 	
 		$this->nombre = $arrayDatos['nombre'];
-		$this->descripcion = $arrayDatos['descripcion'];
+		$this->apellido = $arrayDatos['apellido'];
+		$this->fechaNacimiento = $arrayDatos['fechaNacimiento'];
+		$this->pais = $arrayDatos['pais'];
 
 	}
 
 	public function cargar($id){
 
-		$sql = "SELECT * FROM proveedores WHERE id = :id ";
+		$sql = "SELECT * FROM directores WHERE id = :id ";
 		$arraySQL = array("id" => $id);
 	
 		$lista = $this->traerRegistros($sql, $arraySQL);
 
 		if(isset($lista[0]['id'])){
 
-			$this->nombre 		= $lista[0]['nombre'];
-			$this->descripcion 	= $lista[0]['descripcion'];
-			$this->id 			= $lista[0]['id'];			
+			$this->nombre 			= $lista[0]['nombre'];
+			$this->apellido 		= $lista[0]['apellido'];
+			$this->fechaNacimiento 	= $lista[0]['fechaNacimiento'];
+			$this->pais 			= $lista[0]['pais'];
+			$this->id 				= $lista[0]['id'];			
 			$retorno = true;
 
 		}else{
@@ -49,14 +56,18 @@ class proveedores extends generico{
 			En este metodo se encarga de ingresar los regisros
 		*/		
 	
-		$sql = "INSERT proveedores SET
+		$sql = "INSERT directores SET
 					nombre = :nombre,
-					descripcion = :descripcion,
+					apellido = :apellido,
+					fecha_nacimiento = :fechaNacimiento,
+					pais = :pais,
 					estado = 1;
 				";
 		$arrayDatos = array(
 			"nombre" => $this->nombre,
-			"descripcion" => $this->descripcion
+			"apellido" => $this->apellido,
+			"fechaNacimiento" => $this->fechaNacimiento,
+			"pais" => $this->pais
 		);
 		
 		$respuesta = $this->ejecutar($sql, $arrayDatos);
@@ -71,16 +82,19 @@ class proveedores extends generico{
 		*/
 
 	
-		$sql = "UPDATE proveedores SET
+		$sql = "UPDATE directores SET
 					nombre = :nombre,
-					descripcion = :descripcion
+					apellido = :apellido,
+					fecha_nacimiento = :fechaNacimiento,
+					pais = :pais,
 					WHERE id = :id;
 				";
 
 		$arrayDatos = array(
 			"id" => $this->id,
-			"nombre" => $this->nombre,
-			"descripcion" => $this->descripcion
+			"apellido" => $this->apellido,
+			"fechaNacimiento" => $this->fechaNacimiento,
+			"pais" => $this->pais
 		);
 
 		$respuesta = $this->ejecutar($sql, $arrayDatos);
@@ -99,7 +113,7 @@ class proveedores extends generico{
 				no borramos el registro					
 			}
 		*/
-		$sql = "UPDATE proveedores SET
+		$sql = "UPDATE directores SET
 					estado = '0'
 				WHERE id = :id;
 			";				
@@ -116,22 +130,21 @@ class proveedores extends generico{
 			Este metodo se encarga de retornar una lista de registro de la base de datos
 		*/
 		
-		$sql = "SELECT * FROM proveedores
+		$sql = "SELECT * FROM directores
 					WHERE estado = '1'
 				ORDER BY id
 					LIMIT ".$filtro['inicio'].", ".$filtro['cantidad']."";
 
-
 		$lista = $this->traerRegistros($sql);
-
 		return $lista;
 
 	}
 
-	public function totalRegistros(){
-
 	
-		$sql = "SELECT count(*) as total FROM ".$this->tabla." WHERE estado = 1";
+
+	public function totalRegistros(){
+	
+		$sql = "SELECT count(*) as total FROM directores WHERE estado = 1";
 		$lista = $this->traerRegistros($sql);
 		if(isset($lista[0]['total'])){
 			$retorno = $lista[0]['total'];		
@@ -141,6 +154,8 @@ class proveedores extends generico{
 		return $retorno;
 
 	}
+
+
 
 }
 
