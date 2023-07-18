@@ -36,6 +36,20 @@
 			<a href="#!" class="brand-logo indigo-text text-darken-4">
 				MiPanel
 			</a>
+			<a class='dropdown-trigger btn right light-blue lighten-1' href='#' data-target='dropdown1' style="margin-top:10px;margin-right:15px">
+				<i class="material-icons" style="line-height:34px">person</i>
+			</a>
+			<!-- Dropdown Structure -->
+			<ul id='dropdown1' class='dropdown-content' style="width:150px">				
+				<li>
+					<a href="sistema.php?r=mi_panel">
+						<i class="material-icons">settings</i>Configuracion
+					</a>
+				</li>	
+				<li>
+					<a href="login.php"><i class="material-icons">exit_to_app</i>Salir</a>
+				</li>		
+			</ul>
 		</div>
 	</nav>
 	<div class="fixed-action-btn">

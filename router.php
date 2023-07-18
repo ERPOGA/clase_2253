@@ -27,6 +27,10 @@
 
 			include("vistas/lista_directores.php");	
 
+		}elseif($formulario == "mi_panel"){
+
+				include("vistas/mi_panel.php");	
+				
 		}else{
 
 			echo("<h1>404 Pagina no existe</h1>");
