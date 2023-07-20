@@ -87,6 +87,41 @@
 	
 		}
 
+		public function cambiarClave($clave, $nuevaClave, $conClave){
+
+			// All#152Trece&
+			$largoClave = strlen($nuevaClave);
+
+
+			// Primero verificamos si las clave nueva y la confirmacion son iguales
+			if( !($nuevaClave === $conClave) ){
+				$retorno = "Las clave nueva y la confirmacion no coinciden";
+				return $retorno;
+			}
+			// Verificamos si la clave original coincide con las guardada por el usuario
+			$sql = "SELECT * FROM administradores 
+						WHERE id = ".$this->id." AND clave = :clave";
+			$arraySQL = array("clave"=>md5($clave));
+			$registro = $this->traerRegistros($sql, $arraySQL);
+			// Entramos en esta parte de aca si no existe el registro
+			if(!isset($registro[0]['id'])){
+				$retorno = "Las clave no es la correcta";
+				return $retorno;
+			}
+
+			// Si estan todos los chequeos OK procedo a cambiar la clave
+			$sql = "UPDATE administradores SET
+						clave = :clave
+					WHERE id = :id;
+				";	
+			$arrayDatos = array(
+				"id" => $this->id,
+				"clave" => md5($nuevaClave)
+			);
+			$respuesta = $this->ejecutar($sql, $arrayDatos);
+			return $respuesta;
+
+		}
 
 
 	}
