@@ -90,8 +90,18 @@
 		public function cambiarClave($clave, $nuevaClave, $conClave){
 
 			// All#152Trece&
-			$largoClave = strlen($nuevaClave);
+			//$largoClave = strlen($nuevaClave);
 
+			$resultado = preg_match('/^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[@$!%*#?&])[A-Za-z\d@$!%*#?&]{8,}$/', $nuevaClave);
+
+			if($resultado == 0){
+				$retorno = "La clave no tiene el valor esperado <br>
+							La clave tiene que tener un minimo de 8 caracteres.
+							Dentro de los 8 tiene que tener mayusculas, minusculas, numeros 
+							y alguno de los siguentes caracteres especiales @$!%*#?&
+							";
+				return $retorno;
+			}
 
 			// Primero verificamos si las clave nueva y la confirmacion son iguales
 			if( !($nuevaClave === $conClave) ){

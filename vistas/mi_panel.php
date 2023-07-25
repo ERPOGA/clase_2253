@@ -1,22 +1,25 @@
 <?php
 
-	$nuevaClave = trim("4512dsAAaaddddd");
-	$largoClave = strlen($nuevaClave);
-	
-	//$resultado = preg_match('/^(?=\w*\d)(?=\w*[A-Z])(?=\w*[a-z])\S{8,16}$/', $nuevaClave);
-	$resultado = preg_match('/^(?=.*[A-Za-z])(?=.*\d)(?=.*[@$!%*#?&])[A-Za-z\d@$!%*#?&]{8,}$/', $nuevaClave);
+	$nuevaClave = trim("aBcD123@");
 	
 	$resultado = preg_match('/^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[@$!%*#?&])[A-Za-z\d@$!%*#?&]{8,}$/', $nuevaClave);
 	
-	
+	//print_r("<h3>".$nuevaClave."<h3>");
+
+	/*
+	// Validacion casera de clave
+	$largoClave = strlen($nuevaClave);
 	$resultado1 = preg_match('/[A-Z]/', $nuevaClave);
 	$resultado2 = preg_match('/[a-z]/', $nuevaClave);
 	$resultado3 = preg_match('/[0-9]/', $nuevaClave);
-	$resultado4 = preg_match('/[^a-zA-Z0-9_]/', $nuevaClave);
+	$resultado4 = preg_match('/[^a-zA-Z0-9]/', $nuevaClave);
+		//$resultado = preg_match('/^(?=\w*\d)(?=\w*[A-Z])(?=\w*[a-z])\S{8,16}$/', $nuevaClave);
+	//$resultado = preg_match('/^(?=.*[A-Za-z])(?=.*\d)(?=.*[@$!%*#?&])[A-Za-z\d@$!%*#?&]{8,}$/', $nuevaClave);
 	
-
-	print_r("<h3>".$nuevaClave."<h3>");
 	//print_r("<h3>".$resultado1."-".$resultado2."-".$resultado3."-".$resultado4."<h3>");
+	*/
+
+	
 	var_dump($resultado);
 	
 	require_once("modelos/administradores.php");
@@ -85,6 +88,7 @@
 			</div>
 	<?php
 		}elseif(($respuesta == false && $mensaje != "") && $boton == "guardar"){
+
 	?>		
 			<div class=" valign-wrapper red lighten-4 col s6 offset-s3" style="height: 100px; font-size:25px">
 				<div class = "center-align col s12">
@@ -129,8 +133,12 @@
 			</div>
 	<?php
 		}elseif(($respuesta == false && $mensaje != "") && $boton == "clave"){
+			$altura = "100px";
+			if(strlen($mensaje)> 70){
+				$altura = "200px";
+			}
 	?>		
-			<div class=" valign-wrapper red lighten-4 col s6 offset-s3" style="height: 100px; font-size:25px">
+			<div class=" valign-wrapper red lighten-4 col s6 offset-s3" style="height: <?=$altura?>; font-size:25px">
 				<div class = "center-align col s12">
 					<?=$mensaje?>
 				</div>				
