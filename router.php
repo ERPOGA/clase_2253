@@ -29,8 +29,12 @@
 
 		}elseif($formulario == "mi_panel"){
 
-				include("vistas/mi_panel.php");	
-				
+			include("vistas/mi_panel.php");	
+			
+		}elseif($formulario == ""){
+
+			include("vistas/principal.php");	
+	
 		}else{
 
 			echo("<h1>404 Pagina no existe</h1>");

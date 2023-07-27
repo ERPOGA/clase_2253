@@ -111,18 +111,35 @@ class proveedores extends generico{
 		
 	}
 
+	public function altas($listaProveedores){
+
+		$sql = "UPDATE proveedores SET
+					estado = '1'
+				WHERE id IN (".$listaProveedores.");
+			";				
+		$respuesta = $this->ejecutar($sql);
+		return $respuesta;
+
+	}
+
+
 	public function listar($filtro = array()){
 		/*
 			Este metodo se encarga de retornar una lista de registro de la base de datos
 		*/
-		
+		$estado = isset($filtro['estado'])?$filtro['estado']:"1";	
+
 		$sql = "SELECT * FROM proveedores
-					WHERE estado = '1'
-				ORDER BY id
-					LIMIT ".$filtro['inicio'].", ".$filtro['cantidad']."";
+					WHERE estado = :estado 
+				ORDER BY id";
 
+		if(isset($filtro['inicio']) && isset($filtro['cantidad'])){
+			$sql .= " LIMIT ".$filtro['inicio'].", ".$filtro['cantidad']."";
+		}		
+					
+		$arraySQL = array("estado" => $estado);
 
-		$lista = $this->traerRegistros($sql);
+		$lista = $this->traerRegistros($sql, $arraySQL);
 
 		return $lista;
 

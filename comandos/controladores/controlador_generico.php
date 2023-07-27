@@ -3,8 +3,9 @@
 
 class controlador_generico{
 
+	// Guardamos la hora que se inicio el proceso
 	protected $horaInicio;
-
+	// Guradamos la hora que se finalizo el proceso
 	protected $horaFin;
 
 

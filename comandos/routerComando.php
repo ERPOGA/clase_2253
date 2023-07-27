@@ -3,6 +3,7 @@
 	$archivo = isset($_SERVER['argv'][0])?$_SERVER['argv'][0]:"";
 	$controlador = isset($_SERVER['argv'][1])?$_SERVER['argv'][1]:"";
 
+	// Se valida que el archivo que se ejecuta se 1 solo
 	if($archivo == "comandos.php" || $archivo == ".\comandos.php"){
 
 		print("\n\n Se esta ejecutando correctamente \n\n");
@@ -13,6 +14,9 @@
 		*/
 		$arrayComando = [];
 		$arrayComando['pruebaGenerica'] = "controlador_generico";
+		$arrayComando['altaProveedores'] = "controlador_altaProveedores";
+		$arrayComando['instalacion'] = "controlador_instalacion";
+
 
 		if(isset($arrayComando[$controlador]) ){
 			/*
