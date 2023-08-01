@@ -138,9 +138,23 @@ class proveedores extends generico{
 		}		
 					
 		$arraySQL = array("estado" => $estado);
-
 		$lista = $this->traerRegistros($sql, $arraySQL);
+		return $lista;
 
+	}
+
+	public function listaCorta(){
+		/*
+			Este metodo se encarga de retornar una lista de registro de la base de datos
+		*/
+		$estado = "1";	
+
+		$sql = "SELECT id,nombre FROM proveedores
+					WHERE estado = :estado 
+				ORDER BY nombre";
+		
+		$arraySQL = array("estado" => $estado);
+		$lista = $this->traerRegistros($sql, $arraySQL);
 		return $lista;
 
 	}

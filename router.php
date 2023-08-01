@@ -27,6 +27,14 @@
 
 			include("vistas/lista_directores.php");	
 
+		}elseif($formulario == "lista_contenidos"){
+
+			include("vistas/lista_contenidos.php");
+
+		}elseif($formulario == "ingresar_contenidos"){
+
+				include("vistas/ingresar_contenido.php");	
+	
 		}elseif($formulario == "mi_panel"){
 
 			include("vistas/mi_panel.php");	

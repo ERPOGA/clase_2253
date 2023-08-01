@@ -139,6 +139,19 @@ class directores extends generico{
 		return $lista;
 
 	}
+	
+	public function listaCorta(){
+		/*
+			Este metodo se encarga de retornar una lista de registro de la base de datos
+		*/		
+		$sql = "SELECT id, CONCAT(apellido, ' ', nombre) as nombreCompleto  FROM directores
+					WHERE estado = '1'
+				ORDER BY apellido, nombre";
+
+		$lista = $this->traerRegistros($sql);
+		return $lista;
+
+	}
 
 	
 

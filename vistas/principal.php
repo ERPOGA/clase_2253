@@ -33,9 +33,12 @@
 		</div>
 	</div>
 	<div class="col s12 m4">
-		<div class="card-panel teal">
-			<span class="white-text">I am a very simple card. I am good at containing small bits of information.
-				I am convenient because I require little markup to use effectively. I am similar to what is called a panel in other frameworks.
+		<div class="card-panel pink">
+			<span class="white-text" style="font-size:35px;"> 
+				Contenidos
+				<a class="btn pink darken-4" href="sistema.php?r=lista_contenidos">
+					IR
+				</a>
 			</span>
 		</div>
 	</div>

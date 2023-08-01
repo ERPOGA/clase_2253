@@ -70,6 +70,22 @@
 
 		public function listar($filtro = array()){}
 
+		public function listarPaises(){
+			/*
+				Este metodo devuelve una lista de paises			
+			*/
+			$arrayRetono = array();	
+			$arrayRetono[] = ["nombre"=>"Uruguay", "countryIso"=>"UY"];
+			$arrayRetono[] = ["nombre"=>"Estados Unidos", "countryIso"=>"US"];
+			$arrayRetono[] = ["nombre"=>"Argentina", "countryIso"=>"AR"];
+			$arrayRetono[] = ["nombre"=>"Alemania", "countryIso"=>"DE"];
+			$arrayRetono[] = ["nombre"=>"Reino Unido", "countryIso"=>"UK"];
+			$arrayRetono[] = ["nombre"=>"Mexico", "countryIso"=>"MX"];
+
+			return $arrayRetono;
+
+		}
+
 
 	}
 
