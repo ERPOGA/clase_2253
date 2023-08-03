@@ -58,7 +58,7 @@
 <table class="striped">
 	<thead>
 		<tr>
-			<th colspan="4">
+			<th colspan="11">
 				<a href="sistema.php?r=ingresar_contenidos" class="btn blue lighten-2 right">
 					<i class="material-icons">add</i> Nuevo
 				</a>
@@ -93,8 +93,11 @@
 			<td ><?=$contenido['pais']?></td>
 			<td ><?=$contenido['duracion']?></td>
 			<td ><?=$contenido['tipo_contenido']?></td>
-			<td ><?=$contenido['id_director']?></td>
-			<td ><?=$contenido['id_proveedor']?></td>
+			<td ><?=$contenido['nombreDirector']?></td>
+			<td ><?=$contenido['nombreProveedor']?></td>
+			<td >
+				<img src="web/archivos/<?=$contenido['img']?>" width="100px"/>
+			</td>
 			<td>
 				<a href="sistema.php?r=editar_contenido&id=<?=$contenido['id']?>" class="btn btn-floating blue lighten-2">
 					<i class="material-icons">edit</i>
@@ -107,7 +110,7 @@
 
 <?php  } ?>
 		<tr>
-			<td colspan="4">
+			<td class="blue lighten-2" colspan="11">
 				<ul class="pagination center-align">
 					<li class="waves-effect">
 						<a href="sistema.php?r=lista_contenidos&pagina=1">

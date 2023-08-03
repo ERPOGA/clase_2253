@@ -19,7 +19,13 @@
 
 		//Aca en caso de que boton valga igresar lo que hacemos 
 		//es ingresar el registro 
-		
+		print_r($_FILES);
+
+		//$respuestaCopy = copy($_FILES['fileImg']['tmp_name'],"web/archivos/".$_FILES['fileImg']['name']);
+		//print_r($respuestaCopy);
+
+		$img = $objContenidos->subirImagen($_FILES['fileImg'], 600, 800);
+
 		$arrayDatos = array();
 		
 		$arrayDatos['titulo'] = isset($_POST['txtTitulo'])?$_POST['txtTitulo']:"";
@@ -34,6 +40,7 @@
 			$arrayDatos['tipoContenido'] = isset($_POST['selTipoContenido'])?$_POST['selTipoContenido']:"";
 			$arrayDatos['idDirector'] = isset($_POST['selDirector'])?$_POST['selDirector']:"";
 			$arrayDatos['idProveedor'] = isset($_POST['selProveedor'])?$_POST['selProveedor']:"";
+			$arrayDatos['imagen'] = $img?$img:"";
 
 			$objContenidos->constructor($arrayDatos);
 			$respuesta = $objContenidos->ingresar();
@@ -60,7 +67,7 @@
 ?>
 <h1>Ingresar Contenidos </h1>
 
-<form method="POST" action="sistema.php?r=ingresar_contenidos">
+<form method="POST" action="sistema.php?r=ingresar_contenidos" enctype="multipart/form-data">
 	<div class="row">
 		
 	<?php 
@@ -171,7 +178,15 @@
 			</select>
 			<label for="idProveedor">Proveedor</label>
 		</div>
-		
+		<div class="file-field input-field col s6 offset-s3">
+			<div class="btn blue lighten-1">
+				<span>Archivo</span>
+				<input type="file" name="fileImg">
+			</div>
+			<div class="file-path-wrapper">
+				<input class="file-path validate" type="text">
+			</div>
+		</div>
 
 		<div class="col s6 offset-s3">
 			<button class="btn waves-effect waves-light blue lighten-2" type="submit" name="boton" value="ingresar">Ingresar

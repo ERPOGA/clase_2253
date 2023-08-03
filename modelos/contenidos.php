@@ -24,6 +24,8 @@ class contenidos extends generico{
 
 	public $estado;
 
+	public $imagen;
+
 	protected $tabla = "contenidos";
 
 	public $listaIdioma = [
@@ -50,6 +52,7 @@ class contenidos extends generico{
 		$this->tipoContenido = $arrayDatos['tipoContenido'];
 		$this->idDirector 	= $arrayDatos['idDirector'];
 		$this->idProveedor	= $arrayDatos['idProveedor'];
+		$this->imagen		= $arrayDatos['imagen'];
 
 	}
 
@@ -68,6 +71,7 @@ class contenidos extends generico{
 					tipo_contenido = :tipoContenido,
 					id_director = :idDirector,
 					id_proveedor= :idProveedor,
+					img			= :imagen,
 					estado 		= 1;
 				";
 		$arrayDatos = array(
@@ -80,6 +84,7 @@ class contenidos extends generico{
 			"tipoContenido" => $this->tipoContenido,
 			"idDirector" 	=> $this->idDirector,
 			"idProveedor" 	=> $this->idProveedor,
+			"imagen" 		=> $this->imagen,
 		);
 		
 		$respuesta = $this->ejecutar($sql, $arrayDatos);
@@ -95,8 +100,25 @@ class contenidos extends generico{
 		*/
 		$estado = isset($filtro['estado'])?$filtro['estado']:"1";	
 
-		$sql = "SELECT * FROM contenidos
-					WHERE estado = :estado 
+		$sql = "SELECT 
+						c.id,
+						c.titulo,
+						c.descripcion,
+						c.anio,
+						c.idioma,
+						c.pais,
+						c.duracion,
+						c.tipo_contenido,
+						c.id_director,
+						CONCAT(d.nombre,' ',d.apellido) AS nombreDirector,  
+						c.id_proveedor,
+						p.nombre AS nombreProveedor,
+						c.img,
+						c.estado 
+					FROM contenidos c
+					INNER JOIN directores d ON d.id = c.id_director
+					INNER JOIN proveedores p ON p.id = c.id_proveedor 
+					WHERE c.estado = :estado
 				ORDER BY id";
 
 		if(isset($filtro['inicio']) && isset($filtro['cantidad'])){
@@ -113,7 +135,6 @@ class contenidos extends generico{
 
 	public function totalRegistros(){
 
-	
 		$sql = "SELECT count(*) as total FROM ".$this->tabla." WHERE estado = 1";
 		$lista = $this->traerRegistros($sql);
 		if(isset($lista[0]['total'])){
