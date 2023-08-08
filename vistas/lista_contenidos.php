@@ -99,10 +99,10 @@
 				<img src="web/archivos/<?=$contenido['img']?>" width="100px"/>
 			</td>
 			<td>
-				<a href="sistema.php?r=editar_contenido&id=<?=$contenido['id']?>" class="btn btn-floating blue lighten-2">
+				<a href="sistema.php?r=editar_contenidos&id=<?=$contenido['id']?>" class="btn btn-floating blue lighten-2">
 					<i class="material-icons">edit</i>
 				</a>
-				<a href="sistema.php?r=borrar_contenido&id=<?=$contenido['id']?>" class="btn btn-floating red">
+				<a href="sistema.php?r=borrar_contenidos&id=<?=$contenido['id']?>" class="btn btn-floating red">
 					<i class="material-icons">delete</i>
 				</a>
 			</td>

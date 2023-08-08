@@ -34,7 +34,11 @@
 		}elseif($formulario == "ingresar_contenidos"){
 
 				include("vistas/ingresar_contenido.php");	
-	
+
+		}elseif($formulario == "editar_contenidos"){
+
+				include("vistas/editar_contenido.php");	
+
 		}elseif($formulario == "mi_panel"){
 
 			include("vistas/mi_panel.php");	

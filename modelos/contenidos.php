@@ -43,6 +43,7 @@ class contenidos extends generico{
 
 	public function constructor($arrayDatos = array()){
 
+		$this->id 			= isset($arrayDatos['id'])?$arrayDatos['id']:"";
 		$this->titulo 		= $arrayDatos['titulo'];
 		$this->descripcion 	= $arrayDatos['descripcion'];
 		$this->anio 		= $arrayDatos['anio'];		
@@ -55,6 +56,39 @@ class contenidos extends generico{
 		$this->imagen		= $arrayDatos['imagen'];
 
 	}
+
+	public function cargar($id){
+
+		$sql = "SELECT * FROM contenidos WHERE id = :id ";
+		$arraySQL = array("id" => $id);
+	
+		$lista = $this->traerRegistros($sql, $arraySQL);
+
+		if(isset($lista[0]['id'])){
+
+			$this->id 			= $lista[0]['id'];
+			$this->titulo 		= $lista[0]['titulo'];
+			$this->descripcion 	= $lista[0]['descripcion'];
+			$this->anio 		= $lista[0]['anio'];		
+			$this->idioma 		= $lista[0]['idioma'];
+			$this->pais 		= $lista[0]['pais'];
+			$this->duracion 	= $lista[0]['duracion'];
+			$this->tipoContenido = $lista[0]['tipo_contenido'];
+			$this->idDirector 	= $lista[0]['id_director'];
+			$this->idProveedor	= $lista[0]['id_proveedor'];
+			$this->imagen		= $lista[0]['img'];
+
+			$retorno = true;
+
+		}else{
+
+			$retorno = false;
+
+		}
+		return $retorno;
+
+	}
+
 
 	public function ingresar(){
 		/*
@@ -93,6 +127,48 @@ class contenidos extends generico{
 
 	}
 
+
+	public function editar(){
+		/*
+			En este metodo se encarga de ingresar los regisros
+		*/		
+	
+		$sql = "UPDATE contenidos SET
+					titulo 		= :titulo,
+					descripcion = :descripcion,
+					anio 		= :anio,
+					idioma 		= :idioma,
+					pais 		= :pais,
+					duracion 	= :duracion,
+					tipo_contenido = :tipoContenido,
+					id_director = :idDirector,
+					id_proveedor= :idProveedor";
+
+		if($this->imagen){
+			$sql .= " ,img = '$this->imagen' ";
+		}
+		$sql .=	" WHERE id = :id; ";
+
+		$arrayDatos = array(
+			"titulo" 		=> $this->titulo,
+			"descripcion" 	=> $this->descripcion,
+			"anio" 			=> $this->anio,
+			"idioma" 		=> $this->idioma,
+			"pais" 			=> $this->pais,
+			"duracion" 		=> $this->duracion,
+			"tipoContenido" => $this->tipoContenido,
+			"idDirector" 	=> $this->idDirector,
+			"idProveedor" 	=> $this->idProveedor,
+			"id"			=> $this->id
+		);
+		
+		print_r($arrayDatos);
+
+		$respuesta = $this->ejecutar($sql, $arrayDatos);
+
+		return $respuesta;
+
+	}
 
 	public function listar($filtro = array()){
 		/*
