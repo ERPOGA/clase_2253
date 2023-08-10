@@ -39,10 +39,14 @@
 
 				include("vistas/editar_contenido.php");	
 
-		}elseif($formulario == "mi_panel"){
+		}elseif($formulario == "pdf_contenidos"){
 
-			include("vistas/mi_panel.php");	
-			
+			include("vistas/pdf_contenidos.php");	
+
+		}elseif($formulario == ""){
+
+			include("vistas/principal.php");	
+		
 		}elseif($formulario == ""){
 
 			include("vistas/principal.php");	

@@ -1,0 +1,18 @@
+{
+    "name": "damis/proyecto_git",
+    "autoload": {
+        "psr-4": {
+            "Damis\\ProyectoGit\\": "src/"
+        }
+    },
+    "authors": [
+        {
+            "name": "damdelgado109",
+            "email": "dam.delgado.109@gmail.com"
+        }
+    ],
+    "require": {
+        "phpmailer/phpmailer": "^6.8",
+        "phpoffice/phpword": "^1.1"
+    }
+}

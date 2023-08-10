@@ -3,3 +3,4 @@ configuracion/db.php
 
 # Ignoro los archivos subidos por mi
 web/archivos/
+/vendor/

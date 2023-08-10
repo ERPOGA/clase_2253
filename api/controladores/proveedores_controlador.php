@@ -16,13 +16,19 @@
 	
 			if($arrayDatos['nombre'] != "" && $arrayDatos['descripcion'] != ""){
 				
-				print_r($arrayDatos);
 				$objProveedores->constructor($arrayDatos);
 				$respuesta = $objProveedores->ingresar();
-				return $respuesta;
+				if($respuesta){
+					$retorno = "Se ingreso el registro correctamente";
+				}else{
+					$retorno = "Error al ingresar registro";
+				}
+				return $retorno;
 
-			}	
-			return false;
+			}else{
+				$retorno = "Por favor enviar datos completos";
+			}
+			return $retorno;
 
 		}
 

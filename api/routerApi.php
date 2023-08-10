@@ -5,11 +5,9 @@
 
 		$arrayAccion = explode(":", $PARAMETROS['accion']);
 
-		print_r($arrayAccion);
-
 		$arrayParametros = [];
 		$arrayParametros['proveedor'] = "proveedores_controlador";
-
+		$arrayParametros['contenido'] = "contenidos_controlador";
 
 		if(isset($arrayParametros[$arrayAccion[0]])){
 
@@ -19,7 +17,11 @@
 			$varMetodo = strval($arrayAccion[1]);
 			$respuesta = $objControlador -> $varMetodo($PARAMETROS);
 
-			var_dump($respuesta);
+			print_r(json_encode(array("mensaje" => $respuesta)));
+
+		}else{
+
+			print_r(json_encode(array("mensaje" => "No existe controlador")));
 
 		}
 
