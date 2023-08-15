@@ -12,3 +12,6 @@ Instalar composer
 
  C:\laragon\bin\php\php-8.2.0-Win32-vs16-x64\php .\composer.phar require phpoffice/phpword
 
+
+Clase2253
+Clase@openmulita.com

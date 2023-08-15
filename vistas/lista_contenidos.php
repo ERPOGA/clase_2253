@@ -59,12 +59,16 @@
 	<thead>
 		<tr>
 			<th colspan="11">
+				<a href="sistema.php?r=mail_contenido" class="btn blue lighten-2 right">
+					<i class="material-icons">email</i>Mail
+				</a>
 				<a href="sistema.php?r=pdf_contenidos" target="_blank" class="btn blue lighten-2 right">
-					<i class="material-icons">pdf</i> PDF
+					<i class="material-icons">picture_as_pdf</i> PDF
 				</a>
 				<a href="sistema.php?r=ingresar_contenidos" class="btn blue lighten-2 right">
 					<i class="material-icons">add</i> Nuevo
 				</a>
+			
 			</th>
 		</tr>
 		<tr>

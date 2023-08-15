@@ -194,12 +194,20 @@ class contenidos extends generico{
 					FROM contenidos c
 					INNER JOIN directores d ON d.id = c.id_director
 					INNER JOIN proveedores p ON p.id = c.id_proveedor 
-					WHERE c.estado = :estado
-				ORDER BY id";
+					WHERE c.estado = :estado ";
+		
 
-		if(isset($filtro['inicio']) && isset($filtro['cantidad'])){
-			$sql .= " LIMIT ".$filtro['inicio'].", ".$filtro['cantidad']."";
-		}		
+		if(isset($filtro['mail']) && $filtro['mail'] != ""){
+			// Este filtro es para el envio de mail
+			$sql .=" ORDER BY id DESC LIMIT 3";
+		}else{
+			$sql .=" ORDER BY id";
+			if(isset($filtro['inicio']) && isset($filtro['cantidad'])){
+				$sql .= " LIMIT ".$filtro['inicio'].", ".$filtro['cantidad']."";
+			}
+	
+		}
+			
 					
 		$arraySQL = array("estado" => $estado);
 

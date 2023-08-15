@@ -43,9 +43,9 @@
 
 			include("vistas/pdf_contenidos.php");	
 
-		}elseif($formulario == ""){
+		}elseif($formulario == "mail_contenido"){
 
-			include("vistas/principal.php");	
+			include("vistas/mail_contenido.php");	
 		
 		}elseif($formulario == ""){
 

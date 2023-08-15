@@ -19,6 +19,13 @@ HTML5: <br>
 Materilize Css: 1.0.0 <br>
 
 
+Instalacion 
+
+En el directorio raiz del proyecto ejecutar
+
+php comandos.php instalacion
+
+
 
 
 
