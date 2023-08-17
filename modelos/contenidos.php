@@ -154,7 +154,7 @@ class contenidos extends generico{
 			"descripcion" 	=> $this->descripcion,
 			"anio" 			=> $this->anio,
 			"idioma" 		=> $this->idioma,
-			"pais" 			=> $this->pais,
+			"paiss" 			=> $this->pais,
 			"duracion" 		=> $this->duracion,
 			"tipoContenido" => $this->tipoContenido,
 			"idDirector" 	=> $this->idDirector,

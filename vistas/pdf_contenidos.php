@@ -25,13 +25,16 @@
 	$objWriter->save('helloWorld.html');
 	*/
 
-	require_once('librerias/fpdf186/fpdf.php');
+	use Fpdf\Fpdf;
+	require 'vendor/autoload.php';
 
-	$pdf = new FPDF();
-	$pdf->AddPage();
-	$pdf->SetFont('Arial','B',16);
-	$pdf->Cell(40,10,'¡Hola, Mundo!');
-	$pdf->Output();
+	ob_start();
+    $pdf = new FPDF();
+    $pdf->AddPage();
+    $pdf->SetFont('Arial','B',16);
+    $pdf->Cell(40,10,'Hello World!');
+    $pdf->Output();
+    ob_end_flush(); 
 
 
 ?>

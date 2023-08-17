@@ -1,3 +1,8 @@
+<?php
+
+
+
+?>
 <!DOCTYPE html>
 <html>
 
@@ -62,11 +67,17 @@
 					<i class="material-icons">fitness_center</i>
 				</a>
 			</li>
+<?php
+			if(isset($_SESSION['perfil']) && $_SESSION['perfil'] == "adm"){
+?>
 			<li>
 				<a href="sistema.php?r=lista_generos" class="btn-floating yellow darken-1">
 					<i class="material-icons">format_quote</i>
 				</a>
 			</li>
+<?php
+			}
+?>
 			<li>
 				<a href="sistema.php?r=lista_directores" class="btn-floating green">
 					<i class="material-icons">person</i>

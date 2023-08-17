@@ -28,7 +28,7 @@
 			$_SESSION['usuario'] = $objAdministradores->nombre;
 			$_SESSION['mail'] 	= $objAdministradores->mail;
 			$_SESSION['id'] 	= $objAdministradores->id;
-
+			$_SESSION['perfil'] = $objAdministradores->perfil; 
 			header("location: sistema.php");
 		}
 

@@ -10,11 +10,14 @@
 
 		protected $clave;
 
+		public $perfil;
+
 		public function construnctor($arrayDatos){
 
 			$this->nombre = $arrayDatos['nombre'];
 			$this->mail = $arrayDatos['mail'];
 			$this->clave = $arrayDatos['clave'];
+			$this->perfil = $arrayDatos['perfil'];	
 
 		}
 
@@ -32,6 +35,7 @@
 				$this->id = $registro[0]['id'];
 				$this->nombre= $registro[0]['nombre'];
 				$this->mail = $registro[0]['email'];
+				$this->perfil = $registro[0]['perfil'];
 				$retorno = true;
 
 			}else{
